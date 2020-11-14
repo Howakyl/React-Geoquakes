@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.css';
+import Earthquakes from './components/Earthquakes';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="quakeContainer">
         <h1>Earthquakes from the past week:</h1>
         ...put Quakes Component here...
+        <Earthquakes />
       </div>
     </div>
   );

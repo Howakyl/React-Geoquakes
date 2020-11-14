@@ -1,18 +1,19 @@
-// import React from 'react';
+import React from 'react';
+import Quake from './Quake';
 
 
-// const QuakeList = (props) => {
-//     console.log(props)
-//     const quakesArr = props.quakesList.map((quakeObj) => {
-//         key={quakeObj.id} quake={quakeObj} 
-//     })
+const QuakeList = (props) => {
+    console.log('QUAKES LIST PROPS:' , props.quakesList)
+    const quakesArr = props.quakesList.map((quakeObj) => (
+        <Quake  quake={quakeObj}/>
+    ));
 
 
-//     return (
-//         <>
-//         {quakesArr}
-//         </>
-//     );
-// };
+    return (
+        <>
+        {quakesArr}
+        </>
+    );
+};
 
-// export default QuakeList;
+export default QuakeList;

@@ -1,13 +1,20 @@
 import React from 'react';
+import quakePin from '../images/earthquake.png'
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class GoogleMap extends React.Component {
-
+    constructor(props) {
+        super(props);
+    }
     render() {
         const style = {
             width:'500px',
             height: '1000px'
         }
+
+        // let marker = new google.maps.Marker({
+            
+        // })
 
         return (
             <>
@@ -19,7 +26,15 @@ class GoogleMap extends React.Component {
                     lng: -122.3321
                 }}
                 style={style}>
-                <Marker />
+                <Marker
+                    lat= {47.6062}
+                    lng= {-123.3321}
+                    icon= {{
+                        url: quakePin,
+                        scaledSize: new this.props.google.maps.Size(30,30)
+                        }}
+                    
+                />
                 </Map>
             </>
         );

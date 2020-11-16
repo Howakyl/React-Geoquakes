@@ -31,6 +31,7 @@ class Earthquakes extends React.Component {
                     {this.state.quakes.map((quake, index) => {
                         return (
                         <p key={index}>{quake.properties.title}</p>
+                        /* <p>Longitude: {quake.geometry.coordinates[0]}</p> */
                     )})};
                     
                 </ul>

@@ -25,9 +25,6 @@ class GoogleMap extends React.Component {
         });
     };
 
-    // quakeLat = () => {
-    //     this.state.quakes.map((quake))
-    // }
 
     render() {
         const style = {
@@ -37,7 +34,6 @@ class GoogleMap extends React.Component {
         if (this.state.loading) {
             return <h1>Loading...</h1>
         } else {
-            console.log(this.state.quakes)
             return (
                 <>
                     <Map
@@ -48,14 +44,7 @@ class GoogleMap extends React.Component {
                             lng: this.state.quakes[0].geometry.coordinates[0]
                         }}
                         style={style}>
-                        {/* <Marker
-                            lat= {this.state.quakes[0].geometry.coordinates[1]}
-                            lng= {this.state.quakes[0].geometry.coordinates[0]}
-                            icon= {{
-                                url: quakePin,
-                                scaledSize: new this.props.google.maps.Size(30,30)
-                                }}
-                        /> */}
+
                         {this.state.quakes.map((quake, index) => {
                             return (
                                 <Marker 

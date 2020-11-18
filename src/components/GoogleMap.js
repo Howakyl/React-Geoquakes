@@ -25,35 +25,52 @@ class GoogleMap extends React.Component {
         });
     };
 
+    // quakeLat = () => {
+    //     this.state.quakes.map((quake))
+    // }
+
     render() {
         const style = {
-            width:'450px',
-            height: '1000px'
+            width:'37vw',
         }
 
         if (this.state.loading) {
             return <h1>Loading...</h1>
         } else {
-            console.log(this.state.quakes[0].geometry.coordinates[0])
+            console.log(this.state.quakes)
             return (
                 <>
                     <Map
-                    google={this.props.google}
-                    zoom={10}
-                    initialCenter={{
-                        lat: this.state.quakes[0].geometry.coordinates[1],
-                        lng: this.state.quakes[0].geometry.coordinates[0]
-                    }}
-                    style={style}>
-                    <Marker
-                        lat= {this.state.quakes[0].geometry.coordinates[1]}
-                        lng= {this.state.quakes[0].geometry.coordinates[0]}
-                        icon= {{
-                            url: quakePin,
-                            scaledSize: new this.props.google.maps.Size(30,30)
-                            }}
-                        
-                    />
+                        google={this.props.google}
+                        zoom={5}
+                        initialCenter={{
+                            lat: this.state.quakes[0].geometry.coordinates[1],
+                            lng: this.state.quakes[0].geometry.coordinates[0]
+                        }}
+                        style={style}>
+                        {/* <Marker
+                            lat= {this.state.quakes[0].geometry.coordinates[1]}
+                            lng= {this.state.quakes[0].geometry.coordinates[0]}
+                            icon= {{
+                                url: quakePin,
+                                scaledSize: new this.props.google.maps.Size(30,30)
+                                }}
+                        /> */}
+                        {this.state.quakes.map((quake, index) => {
+                            return (
+                                <Marker 
+                                    key={index}
+                                    position={{
+                                        lat: quake.geometry.coordinates[1],
+                                        lng: quake.geometry.coordinates[0]
+                                    }}
+                                    icon= {{
+                                        url: quakePin,
+                                        scaledSize: new this.props.google.maps.Size(30,30)
+                                    }}
+                                />
+                            )
+                        })}
                     </Map>
                 </>
             );
